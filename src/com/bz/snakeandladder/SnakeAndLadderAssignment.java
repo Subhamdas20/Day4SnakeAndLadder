@@ -8,7 +8,7 @@ public class SnakeAndLadderAssignment {
         return randomNumber;
     }
     void checkOption() {
-        for(int i=1;i<=10;i++) {//checking options for playing
+            while(position<=100){
             int getRandom = getRandomNumber();
             int randomOption = random.nextInt(3);
             System.out.println("Number received after rolling dice is"+getRandom);
@@ -22,12 +22,17 @@ public class SnakeAndLadderAssignment {
                     System.out.println("Position of player after climbing ladder is " + position);
                     break;
                 case 2:
-                    position = position - getRandom;
-                    System.out.println("Position of player after stepping on snake  is " + position);
+                    if (position - getRandom <= 0) {
+                        position = 0;
+                    } else {
+                        position = position - getRandom;
+                        System.out.println("Position of player after stepping on snake  is " + position);
+                    }
                     break;
+                }
             }
-        }
     }
+
     public static void main(String[] args) {
 
         SnakeAndLadderAssignment object1=new SnakeAndLadderAssignment();
