@@ -26,14 +26,6 @@ public class SnakeAndLadderAssignment {
                         case 1:                           //for ladder
 
                             position = position + getRandom;
-//                            int bonusPlayLadder=getRandomNumber();
-//                            System.out.println("Player1 gets bonus point of "+bonusPlayLadder);
-//                            position=position+bonusPlayLadder;                                           // bonus play after getting ladder for player 1
-//                            if(position+bonusPlayLadder>100){
-//                                position=position2-bonusPlayLadder;
-//                            }
-//                            else
-//                                position=position;
                             if (position <= 100) {
                                 System.out.println("Position of player1 after climbing ladder is " + position);
                                 System.out.println("============================================================");
@@ -63,16 +55,7 @@ public class SnakeAndLadderAssignment {
                         case 1:                                                  //for ladder
 
                             position2 = position2 + getRandom;
-//                            int bonusPlayLadder=getRandomNumber();
-//                            System.out.println("Player2 gets bonus points of "+bonusPlayLadder);
-//                            position2=position2+bonusPlayLadder;            // bonus play after getting ladder for player 2
-//                            if(position2+bonusPlayLadder>100){
-//                                position2=position2-bonusPlayLadder;
-//                            }
-//                            else
-//                                position2=position2;
 
-//
                             if (position2 <= 100) {
                                 System.out.println("Position of player2 after climbing ladder is " + position2);
                                 System.out.println("============================================================");
