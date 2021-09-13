@@ -24,7 +24,6 @@ public class SnakeAndLadderAssignment {
                             System.out.println("============================================================");
                             break;
                         case 1:                           //for ladder
-
                             position = position + getRandom;
                             if (position <= 100) {
                                 System.out.println("Position of player1 after climbing ladder is " + position);
@@ -53,9 +52,7 @@ public class SnakeAndLadderAssignment {
                             System.out.println("============================================================");
                             break;
                         case 1:                                                  //for ladder
-
                             position2 = position2 + getRandom;
-
                             if (position2 <= 100) {
                                 System.out.println("Position of player2 after climbing ladder is " + position2);
                                 System.out.println("============================================================");
@@ -71,7 +68,6 @@ public class SnakeAndLadderAssignment {
                                 System.out.println("Position of player2 after stepping on snake  is " + position2);
                                 System.out.println("============================================================");
                             }
-
                             break;
                     }
                     break;
@@ -104,9 +100,7 @@ public class SnakeAndLadderAssignment {
         System.out.println("Number of times  die rolled = "+dieRolled);
         System.out.println("============================================================");
     }
-
     public static void main(String[] args) {
-
         SnakeAndLadderAssignment object1=new SnakeAndLadderAssignment();
         object1.checkOption();
     }
