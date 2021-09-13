@@ -3,13 +3,13 @@ import java.util.*;
 public class SnakeAndLadderAssignment {
     static int position = 0;
     static Random random = new Random();
-    public static int getRandomNumber() {              // generating random number between 1 to 6
+    public static int getDiceRollNumber() {              // generating random number between 1 to 6
         int randomNumber = random.nextInt(6) + 1;
         return randomNumber;
     }
     void checkOption() {
             while(position<=100){
-            int getRandom = getRandomNumber();
+            int getRandom = getDiceRollNumber();
             int randomOption = random.nextInt(3);
             System.out.println("Number received after rolling dice is"+getRandom);
             switch (randomOption) {
