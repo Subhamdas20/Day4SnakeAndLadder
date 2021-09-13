@@ -16,7 +16,7 @@ public class SnakeAndLadderAssignment {
             System.out.println("Number received after rolling dice is "+getRandom);
             int switchPlayers=dieRolled%2;
             switch (switchPlayers){
-                case 0:                                //for player 1
+                case 0:                                     //for player 1
                     switch (randomOption) {                //for printing positions at no play,ladder and snake
                         case 0:                           //for no play
                             position = position;
@@ -24,11 +24,18 @@ public class SnakeAndLadderAssignment {
                             System.out.println("============================================================");
                             break;
                         case 1:                           //for ladder
-
                             position = position + getRandom;
+                            int bonusPlayLadder=getRandomNumber();
                             if (position <= 100) {
-                                System.out.println("Position of player1 after climbing ladder is " + position);
                                 System.out.println("============================================================");
+                                System.out.println("Position of player1 after climbing ladder   is " + position);
+                                if((position+bonusPlayLadder)<=100){                                                    //for bonus play after getting ladder
+                                    System.out.println("Player1 gets bonus point of "+bonusPlayLadder);
+                                    System.out.println("Position of player1 after climbing bonus  ladder is " +(position=position+bonusPlayLadder));
+                                }
+                                else
+                                    System.out.println("Player1 gets bonus point of "+bonusPlayLadder);
+                                System.out.println("Position of player1 after climbing bonus  ladder is " + (position));
                             } else
                                 System.out.println("Position of player1 after climbing ladder is " + (position - getRandom));
                             System.out.println("============================================================");
@@ -36,8 +43,7 @@ public class SnakeAndLadderAssignment {
                         case 2:                           //for snake
                             if (position - getRandom <= 0) {
                                 position = 0;
-                            }
-                            else {
+                            } else {
                                 position = position - getRandom;
                                 System.out.println("Position of player1 after stepping on snake  is " + position);
                                 System.out.println("============================================================");
@@ -45,7 +51,7 @@ public class SnakeAndLadderAssignment {
                             break;
                     }
                     break;
-                case 1 :                               //for player 2
+                case 1 :                                     //for player 2
                     switch (randomOption) {                //for printing positions at no play,ladder and snake
                         case 0:                           //for no play
                             position2 = position2;
@@ -53,12 +59,17 @@ public class SnakeAndLadderAssignment {
                             System.out.println("============================================================");
                             break;
                         case 1:                                                  //for ladder
-
                             position2 = position2 + getRandom;
-
+                            int bonusPlayLadder=getRandomNumber();
                             if (position2 <= 100) {
-                                System.out.println("Position of player2 after climbing ladder is " + position2);
                                 System.out.println("============================================================");
+                                System.out.println("Position of player2 after climbing ladder is " + position2);
+                                if((position2+bonusPlayLadder)<=100){                                                  // bonus play after getting ladder for player 2
+                                    System.out.println("Player2 gets bonus point of "+bonusPlayLadder);
+                                    System.out.println("Position of player2 after climbing bonus  ladder is " +( position2=position2+bonusPlayLadder));
+                                }
+                                else
+                                    System.out.println("Position of player2 after climbing bonus ladder is " + (position2));
                             } else
                                 System.out.println("Position of player2 after climbing ladder is " + (position2 - getRandom));
                             System.out.println("============================================================");
@@ -71,21 +82,18 @@ public class SnakeAndLadderAssignment {
                                 System.out.println("Position of player2 after stepping on snake  is " + position2);
                                 System.out.println("============================================================");
                             }
-
                             break;
                     }
                     break;
             }
             if (position > 100) {                                //if position is greater than 100 it will roll back to previous value
                 position = position - getRandom;
-                System.out.println("Position of Player2 after rolling back is "+position);
+                System.out.println("Position of Player1 after rolling back is "+position);
             }
             else if (position == 100) {
                 System.out.println("Player1 wins");
                 break;
-            }
-            else
-            {
+            } else {
                 position=position;
             }
             if (position2 > 100) {                                //if position is greater than 100 it will roll back to previous value
@@ -95,14 +103,12 @@ public class SnakeAndLadderAssignment {
             else if (position2 == 100) {
                 System.out.println("Player2 wins");
                 break;
-            }
-            else {
+            } else {
                 position2=position2;
             }
             dieRolled+=1;
         }
         System.out.println("Number of times  die rolled = "+dieRolled);
-        System.out.println("============================================================");
     }
 
     public static void main(String[] args) {
@@ -112,4 +118,3 @@ public class SnakeAndLadderAssignment {
     }
 
 }
-
