@@ -1,17 +1,18 @@
 package com.bz.snakeandladder;
 import java.util.*;
 public class SnakeAndLadderAssignment {
-    int dieRolled;
+    static int dieRolled;
     static int position = 0;
     static int position2 = 0;
     static Random random = new Random();
-    public static int getRandomNumber() {              // generating random number between 1 to 6
+    public static int getDiceRollNumber() {              // generating random number between 1 to 6
         int randomNumber = random.nextInt(6) + 1;
+        dieRolled+=1;
         return randomNumber;
     }
     void checkOption() {
         while((position<=100)||(position2<=100)){
-            int getRandom = getRandomNumber();
+            int getRandom = getDiceRollNumber();
             int randomOption = random.nextInt(3);      // // generating random options for play
             System.out.println("Number received after rolling dice is "+getRandom);
             int switchPlayers=dieRolled%2;
@@ -95,7 +96,7 @@ public class SnakeAndLadderAssignment {
             else {
                 position2=position2;
             }
-            dieRolled+=1;
+
         }
         System.out.println("Number of times  die rolled = "+dieRolled);
         System.out.println("============================================================");
