@@ -1,11 +1,12 @@
 package com.bz.snakeandladder;
 import java.util.*;
 public class SnakeAndLadderAssignment {
-    int dieRolled;
+   static int dieRolled;
     static int position = 0;
     static Random random = new Random();
     public static int getRandomNumber() {              // generating random number between 1 to 6
         int randomNumber = random.nextInt(6) + 1;
+        dieRolled+=1;
         return randomNumber;
     }
     void checkOption() {
@@ -26,7 +27,7 @@ public class SnakeAndLadderAssignment {
                         System.out.println("Position of player after climbing ladder is " + position);
                         System.out.println("============================================================");
                     }
-                    else
+                    else if (position>100)
                         System.out.println("Position of player after climbing ladder is " + (position-getRandom));
                     System.out.println("============================================================");
                     break;
@@ -48,7 +49,7 @@ public class SnakeAndLadderAssignment {
             } else {
                 position=position;
             }
-            dieRolled+=1;
+
         }
         System.out.println("Number of times  die rolled = "+dieRolled);
         System.out.println("============================================================");
