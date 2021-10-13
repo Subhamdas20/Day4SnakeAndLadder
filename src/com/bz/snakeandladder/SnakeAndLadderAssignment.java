@@ -14,7 +14,6 @@ public class SnakeAndLadderAssignment {
             int getRandom = getDiceRollNumber();
             int randomOption = random.nextInt(3);      // // generating random options for play
             System.out.println("Number received after rolling dice is "+getRandom);
-
             switch (randomOption) {                //for printing positions at no play,ladder and snake
                 case 0:                           //for no play
                     position = position;
@@ -27,8 +26,9 @@ public class SnakeAndLadderAssignment {
                         System.out.println("Position of player after climbing ladder is " + position);
                         System.out.println("============================================================");
                     }
-                    else if (position>100)
-                        System.out.println("Position of player after climbing ladder is " + (position-getRandom));
+                    if (position>100)
+                        position=position-getRandom;
+                    System.out.println("Position of player after climbing ladder is " + (position));
                     System.out.println("============================================================");
                     break;
                 case 2:                           //for snake
@@ -41,24 +41,16 @@ public class SnakeAndLadderAssignment {
                     }
                     break;
             }
-            if (position > 100) {                                //if position is greater than 100 it will roll back to previous value
-                position = position - getRandom;
-            } else if (position == 100) {
-                System.out.println("Player wins");
+            if(position==100){
+                System.out.println("player wins");
                 break;
-            } else {
-                position=position;
             }
-
         }
+    }
+    public static void main(String[] args) {
+        SnakeAndLadderAssignment object1=new SnakeAndLadderAssignment();
+        object1.checkOption();
         System.out.println("Number of times  die rolled = "+dieRolled);
         System.out.println("============================================================");
     }
-
-    public static void main(String[] args) {
-
-        SnakeAndLadderAssignment object1=new SnakeAndLadderAssignment();
-        object1.checkOption();
-    }
-
 }
