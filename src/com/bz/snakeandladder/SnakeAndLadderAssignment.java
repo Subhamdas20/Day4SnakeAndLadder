@@ -1,12 +1,12 @@
 package com.bz.snakeandladder;
-import java.util.*;
+
+import java.util.Random;
 
 public class SnakeAndLadderAssignment {
     static int dieRolled;
     int position = 0;
     int position1 = 0;
     int position2 = 0;
-    int currentPosition = -1;
     static Random random = new Random();
 
     public static int getDiceRollNumber() {              // generating random number between 1 to 6
@@ -27,12 +27,19 @@ public class SnakeAndLadderAssignment {
                 break;
             case 1:                           //for ladder
                 position = position + getRandom;
+                int bonusPlayLadder = getDiceRollNumber();
                 if (position <= 100) {
-                    System.out.println("Position of player after climbing ladder is " + position);
-                }
-                if (position > 100)
+                    System.out.println("Position of player2 after climbing ladder is " + position);
+                    if ((position + bonusPlayLadder) <= 100) {// bonus play after getting ladder for player
+                        position = position + bonusPlayLadder;
+                        System.out.println("Player2 gets bonus point of " + bonusPlayLadder);
+                        System.out.println("Position of player2 after climbing bonus  ladder is " + (position));
+                    } else
+                        System.out.println("Position of player2 after climbing bonus ladder is " + (position));
+                } else
                     position = position - getRandom;
-                System.out.println("Position of player after climbing ladder is " + (position));
+                System.out.println("Position of player2 after climbing ladder is " + (position));
+                System.out.println("============================================================");
                 break;
             case 2:                           //for snake
                 if (position - getRandom <= 0) {
@@ -47,20 +54,19 @@ public class SnakeAndLadderAssignment {
     }
 
     public void checkWinner(SnakeAndLadderAssignment obj) {
-        while (position != 100) {
-            if (currentPosition == -1) {
-                position1 = obj.startPlay(position1);
-                System.out.println("Player1 position is : " + position1);
-                System.out.println("============================================================");
-            } else {
-                position2 = obj.startPlay(position2);
-                System.out.println("Player2 position is : " + position2);
-                System.out.println("============================================================");
+        while (position1 <= 100 || position2 <= 100) {
+            position1 = obj.startPlay(position1);
+            System.out.println("Player1 position is : " + position1);
+            System.out.println("============================================================");
+            if (position1 == 100) {
+                System.out.println("Player 1 winner");
+                break;
             }
-            currentPosition = -currentPosition;
-            if (position1 == 100 || position2 == 100) {
-                if (position1 == 100) System.out.println("Player 1 winner");
-                if (position2 == 100) System.out.println("Player 2 winner");
+            position2 = obj.startPlay(position2);
+            System.out.println("Player2 position is : " + position2);
+            System.out.println("============================================================");
+            if (position2 == 100) {
+                 System.out.println("Player 2 winner");
                 break;
             }
         }
