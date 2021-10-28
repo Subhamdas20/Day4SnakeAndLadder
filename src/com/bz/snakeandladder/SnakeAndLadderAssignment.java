@@ -1,7 +1,13 @@
 package com.bz.snakeandladder;
 
 import java.util.Random;
-
+/*
+* Created a snake and ladder game play for 2 users.
+* Created a method startPlay to roll the dice and play the game according to given conditions
+* Created a method checkWinner to switch between players and check the winner
+* dieRolled gives the number of times die is rolled in the game
+* position1 and position2 gives the position of players
+* */
 public class SnakeAndLadderAssignment {
     static int dieRolled;
     int position = 0;
